@@ -1,6 +1,11 @@
+using SchoolApi.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.Configure<SchoolDatabaseSettings>(
+    builder.Configuration.GetSection("SchoolDatabase")
+);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
