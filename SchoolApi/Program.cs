@@ -1,4 +1,5 @@
 using SchoolApi.Models;
+using SchoolApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<SchoolDatabaseSettings>(
     builder.Configuration.GetSection("SchoolDatabase")
 );
+
+builder.Services.AddSingleton<StudentsService>();
+builder.Services.AddSingleton<TeachersService>();
+builder.Services.AddSingleton<ClassesService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
